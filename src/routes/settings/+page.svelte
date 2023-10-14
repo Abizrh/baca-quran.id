@@ -3,23 +3,18 @@
 	import MetaTag from '$lib/MetaTag.svelte';
 	import VerseAudioPlayerTrigger from '$lib/VerseAudioPlayerTrigger.svelte';
 	import VerseCard from '$lib/VerseCard.svelte';
-	import { RECITER_ARRAY } from '$lib/audio';
+	import { RECITER_ARRAY } from '$lib/utils/audio';
 	import { CONSTANTS, META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
 	import surahData from '../../data/surah-data/108';
-	import {
-		settingAudio,
-		settingAutoNext,
-		settingTafsir,
-		settingTranslation
-	} from '../../store';
-  let SURAH_SAMPLE = 108
-  let SURAH_SAMPLE_TOTAL_AYAH = 3
-  let SURAH_SAMPLE_ARABIC = "الكوثر"
-  let SURAH_SAMPLE_LATIN = "Al-Kausar"
+	import { settingAudio, settingAutoNext, settingTafsir, settingTranslation } from '../../store';
+	let SURAH_SAMPLE = 108;
+	let SURAH_SAMPLE_TOTAL_AYAH = 3;
+	let SURAH_SAMPLE_ARABIC = 'الكوثر';
+	let SURAH_SAMPLE_LATIN = 'Al-Kausar';
 </script>
 
 <svelte:head>
-	<MetaTag title={META_TITLE} desc={META_DESC} url={`${TITLE_CONSTANTS.PATH}`} />
+	<MetaTag title={META_TITLE} desc={META_DESC} url={`${TITLE_CONSTANTS.PATH}settings`} />
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
@@ -27,11 +22,7 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb
-		items={[
-			{ text: '🏠 Beranda', href: '/' }
-		]}
-	/>
+	<Breadcrumb items={[{ text: '🏠 Beranda', href: '/' }]} />
 </div>
 
 <article class="px-4 flex flex-col gap-4 divide-y">
@@ -123,9 +114,7 @@
 		</div>
 
 		<div>
-			<label for="select-qari" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-				>Pilih Qari</label
-			>
+			<label for="select-qari" class="block mb-2 text-sm font-medium">Pilih Qari</label>
 			<div class="flex items-center gap-2">
 				<select
 					id="select-qari"
@@ -134,7 +123,7 @@
 						const value = e?.target?.value ?? 1;
 						localStorage.setItem(CONSTANTS.STORAGE_KEY.AUDIO, value ? value : '1');
 					}}
-					class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blueish-700 dark:border-blueish-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blueish-500 dark:focus:border-blueish-500"
+					class="bg-primary border border-gray-300 text-sm rounded-lg block w-full p-2.5"
 				>
 					{#each RECITER_ARRAY as item (item.id)}
 						<option value={item.id}>{item.name}</option>

@@ -12,21 +12,21 @@
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		for (const [_, surah] of Object.entries(surahInfo)) {
 			result[surah.index] = {
-        ...surah,
-        revelation: MakkiyahMadaniyah[surah.index] ? MakkiyahMadaniyah[surah.index] : 0
-      };
+				...surah,
+				revelation: MakkiyahMadaniyah[surah.index] ? MakkiyahMadaniyah[surah.index] : 0
+			};
 		}
-    return result
+		return result;
 	}
 
-  let originSurahInfo = insertMakkiyahMadaniyah()
+	let originSurahInfo = insertMakkiyahMadaniyah();
 </script>
 
 <svelte:head>
 	<MetaTag
 		title={META_TITLE_ALL_SURAH}
 		desc={META_DESC_ALL_SURAH}
-		url={`${TITLE_CONSTANTS.PATH}`}
+		url={`${TITLE_CONSTANTS.PATH}all-surah/`}
 	/>
 </svelte:head>
 
@@ -35,13 +35,9 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb
-		items={[
-			{ text: '🏠 Beranda', href: '/' }
-		]}
-	/>
+	<Breadcrumb items={[{ text: '🏠 Beranda', href: '/' }]} />
 </div>
 
-<SurahList originSurahInfo={originSurahInfo} />
+<SurahList {originSurahInfo} />
 
 <SeoText variant="ALL_SURAH" />

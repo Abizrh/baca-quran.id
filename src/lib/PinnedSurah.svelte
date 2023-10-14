@@ -15,9 +15,9 @@
 				<p>Kamu belum punya surah yang di pin!</p>
 				<p>Mulai pin 6 surah agar mudah diakses.</p>
 			</div>
-			<a
+      <a
 				href="/all-surah/"
-				class="flex items-center gap-2 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded"
+				class="flex bg-primary items-center gap-2 cursor-pointer p-2 rounded-md focus:ring-2 focus:ring-blue-500"
 				data-sveltekit-reload
 			>
 				<ArrowRightIcon />
@@ -30,7 +30,7 @@
 			<CardShadow href={`/surah/${surah.i}/`} _as="a">
 				<div class="flex flex-col items-center justify-center">
 					<span class="font-bold text-xl font-arabic">{surah.a}</span>
-					<span class="text-xs text-gray-400">{surah.l}</span>
+					<span class="text-xs text-foreground-secondary">{surah.l}</span>
 				</div>
 			</CardShadow>
 		{/each}

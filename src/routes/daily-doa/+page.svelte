@@ -9,12 +9,12 @@
 	import dailyDoa, { type DailyDoaItem } from '../../data/daily-doa';
 	import { globalBottomSheet } from '../../store/globalBottomSheet';
 
-  let toggleBottomSheet = (item: DailyDoaItem) => {
-    globalBottomSheet.show({
-      title: `💠 Terjemahan: ${item.title}`,
-      content: `🔸 ${item.translation}`
-    })
-  }
+	let toggleBottomSheet = (item: DailyDoaItem) => {
+		globalBottomSheet.show({
+			title: `💠 Terjemahan: ${item.title}`,
+			content: `🔸 ${item.translation}`
+		});
+	};
 </script>
 
 <svelte:head>
@@ -39,13 +39,18 @@
 			<div class="flex flex-col justify-center gap-4">
 				<span class="font-bold text-left">💠 {item.title}</span>
 				<span class="font-bold text-2xl font-arabic text-right">{item.arabic}</span>
-				<small class="text-sm text-gray-400 italic">{item.latin}</small>
+				<small class="text-sm text-foreground-secondary italic">{item.latin}</small>
 			</div>
 			<div class="mt-4 flex justify-between items-center gap-2">
 				<div class="flex items-center gap-2">
-					<Button onClick={() => {toggleBottomSheet(item)}} ariaLabel="Baca Terjemah">
-            <DocumentTextIcon />
-          </Button>
+					<Button
+						onClick={() => {
+							toggleBottomSheet(item);
+						}}
+						ariaLabel="Baca Terjemah"
+					>
+						<DocumentTextIcon />
+					</Button>
 				</div>
 			</div>
 		</CardShadow>

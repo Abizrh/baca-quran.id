@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<MetaTag title={META_TITLE} desc={META_DESC} url={`${TITLE_CONSTANTS.PATH}`} />
+	<MetaTag title={META_TITLE} desc={META_DESC} url={`${TITLE_CONSTANTS.PATH}kebijakan-privasi`} />
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
@@ -16,26 +16,21 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb
-		items={[
-			{ text: '🏠 Beranda', href: '/' }
-		]}
-	/>
+	<Breadcrumb items={[{ text: '🏠 Beranda', href: '/' }]} />
 </div>
 
 <article class="px-4">
-
 	<div class="flex gap-2 mb-4">
 		<a
 			href="/kebijakan-privasi/"
-			class="flex items-center gap-2 cursor-pointer p-2 rounded-md bg-gray-100 dark:bg-blueish-700"
+			class="flex items-center gap-2 cursor-pointer p-2 rounded-md bg-secondary"
 		>
 			<ShieldCheckIcon />
 			Kebijakan Privasi</a
 		>
 		<a
 			href="/ketentuan-layanan/"
-			class="flex items-center gap-2 cursor-pointer p-2 rounded-md bg-gray-100 dark:bg-blueish-700"
+			class="flex items-center gap-2 cursor-pointer p-2 rounded-md bg-secondary"
 		>
 			<InformationCircleIcon />
 			Ketentuan Layanan</a

@@ -39,13 +39,13 @@
 	}
 </script>
 
-<CardShadow>
-	<div class="flex justify-end gap-4 items-start" id={`ayat-${numberVerse}`} data-source={source}>
+<CardShadow id={`ayat-${numberVerse}`}>
+	<div class="flex justify-end gap-4 items-start" data-source={source}>
 		<div class="font-bold text-2xl text-right font-arabic">{verse}</div>
 	</div>
 
 	{#if $settingTranslation}
-		<p class="pt-2 text-xs italic text-gray-600 dark:text-gray-300">
+		<p class="pt-2 text-xs italic">
 			{translation}
 		</p>
 	{/if}
@@ -54,10 +54,7 @@
 		<div class="flex items-center gap-2">
 			<VerseAudioPlayerTrigger {totalAyah} {numberSurah} {numberVerse} {source} />
 			<VerseSaveLastRead {surahLatin} {surahArabic} {numberSurah} {numberVerse} {source} />
-			<Button
-				onClick={handleShare}
-				ariaLabel="Bagikan Ayat"
-			>
+			<Button onClick={handleShare} ariaLabel="Bagikan Ayat">
 				<ShareIcon />
 			</Button>
 			{#if $settingTafsir}
@@ -66,7 +63,7 @@
 				</Button>
 			{/if}
 		</div>
-		<div class="flex items-center justify-center tracking-tighter border-2 rounded-full h-8 w-8">
+		<div class="flex items-center justify-center tracking-tighter border-2 rounded-full h-8 w-8 border-foreground">
 			{parseInt(numberVerse, 10).toLocaleString('ar-u-nu-arab', { useGrouping: false })}
 		</div>
 	</div>

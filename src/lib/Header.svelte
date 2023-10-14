@@ -1,11 +1,15 @@
 <script lang="ts">
 	import ThemeSwicther from './ThemeSwicther.svelte';
+	import ResetIcon from './icons/ResetIcon.svelte';
 
 	export let onToggleDrawer: () => void;
 </script>
 
 <header class="flex justify-between items-center py-4 px-2">
-	<button class="cursor-pointer p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700" on:click={onToggleDrawer}>
+	<button
+		class="cursor-pointer p-2 rounded-md hover:bg-secondary focus:bg-secondary"
+		on:click={onToggleDrawer}
+	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			class="w-6 h-6 cursor-pointer"
@@ -27,6 +31,9 @@
 	</a>
 
 	<div class="flex gap-2">
+		<a class="cursor-pointer p-2 rounded-md hover:bg-secondary focus:bg-secondary" href="/sync">
+			<ResetIcon />
+		</a>
 		<ThemeSwicther />
 	</div>
 </header>

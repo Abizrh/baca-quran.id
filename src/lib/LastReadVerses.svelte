@@ -17,7 +17,7 @@
 			</div>
 			<a
 				href="/all-surah/"
-				class="flex items-center gap-2 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded"
+				class="flex bg-primary items-center gap-2 cursor-pointer p-2 rounded-md focus:ring-2 focus:ring-blue-500"
 				data-sveltekit-reload
 			>
 				<ArrowRightIcon />
@@ -27,12 +27,14 @@
 {:else}
 	<div class="grid grid-cols-3 gap-2">
 		{#each $lastReadVerses as verse (`${verse.s}-${verse.v}`)}
-			<CardShadow href={`/surah/${verse.s}/${verse.v}/`} _as="a">
-        <span class="absolute top-1 left-1 flex w-2.5 h-2.5 bg-blue-600 rounded-full mr-1.5 flex-shrink-0"></span>
+			<CardShadow href={`/surah/${verse.s}/#ayat-${verse.v}`} _as="a">
+				<span
+					class="absolute top-1 left-1 flex w-2.5 h-2.5 bg-blue-600 rounded-full mr-1.5 flex-shrink-0"
+				/>
 				<div class="flex flex-col gap-1 items-center justify-center">
-					<span class="text-xs text-gray-400">{verse.l}</span>
+					<span class="text-xs text-foreground-secondary">{verse.l}</span>
 					<span class="font-bold text-xl font-arabic">{verse.a}</span>
-					<span class="text-sm text-gray-400">Ayat {verse.v}</span>
+					<span class="text-sm text-foreground-secondary">Ayat {verse.v}</span>
 				</div>
 			</CardShadow>
 		{/each}
